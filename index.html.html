@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srinivas Deekonda | Head of Operations & Business Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0c0f1a;
+    --ink-2: #151829;
+    --ink-3: #1e2238;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dim: rgba(201,168,76,0.15);
+    --cream: #f5f0e8;
+    --smoke: #a8aec4;
+    --white: #ffffff;
+    --accent-teal: #2dd4bf;
+    --accent-teal-dim: rgba(45,212,191,0.1);
+    --card: rgba(255,255,255,0.04);
+    --card-border: rgba(255,255,255,0.08);
+    --radius: 2px;
+    --radius-lg: 8px;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--ink);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--ink); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(12,15,26,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--card-border);
+    transition: var(--transition);
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--smoke); text-decoration: none;
+    transition: var(--transition);
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--ink);
+    padding: 0.55rem 1.4rem; border-radius: var(--radius);
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: var(--transition);
+  }
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── HAMBURGER ── */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--gold); transition: var(--transition); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 6rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 80% 80%, rgba(45,212,191,0.04) 0%, transparent 50%),
+                linear-gradient(160deg, #0c0f1a 0%, #101525 50%, #0c0f1a 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.35rem 1rem; border-radius: 100px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  h1.hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900; line-height: 1.02;
+    color: var(--white);
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  h1.hero-name span { color: var(--gold); }
+
+  .hero-title {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 300; color: var(--smoke);
+    letter-spacing: 0.04em; margin: 1rem 0 1.5rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-value {
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    font-family: var(--font-display);
+    font-weight: 400;
+    color: var(--cream);
+    max-width: 620px;
+    line-height: 1.45;
+    border-left: 3px solid var(--gold);
+    padding-left: 1.25rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .hero-stats {
+    display: flex; gap: 3rem; margin-bottom: 3rem;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat-item { text-align: left; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2.2rem; font-weight: 700; color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--smoke); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
+
+  .hero-ctas {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.5s ease both;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--ink);
+    padding: 0.9rem 2.2rem; border-radius: var(--radius);
+    font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: var(--transition); display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(201,168,76,0.3); }
+  .btn-secondary {
+    background: transparent; color: var(--white);
+    padding: 0.9rem 2.2rem; border-radius: var(--radius);
+    font-weight: 500; font-size: 0.85rem; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    border: 1px solid var(--card-border);
+    transition: var(--transition);
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .hero-visual {
+    position: absolute; right: 4rem; top: 50%; transform: translateY(-50%);
+    width: 320px; display: none;
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 4rem; }
+  .section-tag {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  h2.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--white); margin-bottom: 1.5rem;
+  }
+  h2.section-title span { color: var(--gold); }
+  .section-lead {
+    font-size: 1.05rem; color: var(--smoke); max-width: 600px; line-height: 1.7;
+  }
+  .divider {
+    width: 60px; height: 3px; background: var(--gold); margin: 1.5rem 0;
+    border-radius: 2px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--ink-2); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 4rem;
+  }
+  .about-text p { color: var(--smoke); line-height: 1.8; margin-bottom: 1.25rem; font-size: 0.97rem; }
+  .about-text p strong { color: var(--white); }
+
+  .strength-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+  .pill {
+    background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold); padding: 0.4rem 1rem; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+  }
+
+  .about-metrics { display: flex; flex-direction: column; gap: 1.5rem; }
+  .metric-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg); padding: 1.5rem 2rem;
+    transition: var(--transition);
+  }
+  .metric-card:hover { border-color: rgba(201,168,76,0.4); transform: translateX(4px); }
+  .metric-card-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--smoke); margin-bottom: 0.5rem; }
+  .metric-card-value { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--gold); }
+  .metric-card-desc { font-size: 0.82rem; color: var(--smoke); margin-top: 0.3rem; }
+
+  .industries-list { margin-top: 2rem; }
+  .industry-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.9rem 0; border-bottom: 1px solid var(--card-border);
+    font-size: 0.9rem; color: var(--smoke);
+  }
+  .industry-item::before { content: '→'; color: var(--gold); font-size: 0.85rem; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--ink); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem; margin-top: 4rem;
+  }
+  .service-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg); padding: 2.5rem;
+    transition: var(--transition); position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--accent-teal));
+    transform: scaleX(0); transform-origin: left; transition: var(--transition);
+  }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-4px); }
+
+  .service-icon {
+    width: 48px; height: 48px; border-radius: 10px;
+    background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 1.5rem;
+  }
+  .service-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 1.25rem; }
+  .pso { display: flex; flex-direction: column; gap: 0.75rem; }
+  .pso-item { display: flex; gap: 0.75rem; align-items: flex-start; }
+  .pso-label {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--gold-dim); color: var(--gold); padding: 0.2rem 0.5rem;
+    border-radius: 3px; white-space: nowrap; margin-top: 2px; min-width: 60px; text-align: center;
+  }
+  .pso-label.sol { background: var(--accent-teal-dim); color: var(--accent-teal); }
+  .pso-label.out { background: rgba(167,243,208,0.1); color: #6ee7b7; }
+  .pso-text { font-size: 0.85rem; color: var(--smoke); line-height: 1.6; }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--ink-2); }
+  .projects-list { display: flex; flex-direction: column; gap: 2rem; margin-top: 4rem; }
+  .project-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg); overflow: hidden;
+    transition: var(--transition);
+  }
+  .project-card:hover { border-color: rgba(201,168,76,0.3); }
+  .project-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 2rem 2.5rem; cursor: pointer; gap: 1rem;
+  }
+  .project-num {
+    font-family: var(--font-mono); font-size: 0.72rem; color: var(--gold);
+    letter-spacing: 0.1em; margin-bottom: 0.5rem;
+  }
+  .project-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--white); }
+  .project-tag {
+    background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.2);
+    color: var(--gold); font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 0.8rem;
+    border-radius: 4px; white-space: nowrap; align-self: flex-start; margin-top: 4px;
+  }
+  .project-toggle { font-size: 1.2rem; color: var(--gold); cursor: pointer; user-select: none; flex-shrink: 0; }
+  .project-body { display: none; padding: 0 2.5rem 2.5rem; }
+  .project-body.open { display: block; }
+  .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .pj-section-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  .pj-text { font-size: 0.87rem; color: var(--smoke); line-height: 1.7; }
+  .dax-block {
+    background: rgba(0,0,0,0.4); border: 1px solid var(--card-border);
+    border-radius: 6px; padding: 1rem 1.25rem;
+    font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-teal);
+    line-height: 1.6; white-space: pre-wrap; margin-top: 0.5rem;
+  }
+  .impact-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+  .impact-pill {
+    background: rgba(167,243,208,0.08); border: 1px solid rgba(110,231,183,0.3);
+    color: #6ee7b7; font-size: 0.78rem; font-weight: 600;
+    padding: 0.35rem 0.8rem; border-radius: 100px;
+  }
+
+  /* ── BI EXPERTISE ── */
+  #expertise { background: var(--ink); }
+  .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
+  .expertise-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg); padding: 2rem;
+    transition: var(--transition);
+  }
+  .expertise-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+  .exp-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .exp-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.75rem; }
+  .exp-list { list-style: none; }
+  .exp-list li { font-size: 0.83rem; color: var(--smoke); padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 0.5rem; }
+  .exp-list li::before { content: '▸'; color: var(--gold); font-size: 0.6rem; }
+
+  /* ── TOOLS ── */
+  #tools { background: var(--ink-2); }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 4rem; }
+  .tool-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg); padding: 1.5rem; text-align: center;
+    transition: var(--transition);
+  }
+  .tool-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .tool-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .tool-name { font-size: 0.85rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+  .tool-level { font-size: 0.7rem; color: var(--smoke); letter-spacing: 0.08em; }
+  .tool-bar { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; margin-top: 0.75rem; overflow: hidden; }
+  .tool-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--accent-teal)); border-radius: 2px; }
+
+  /* ── ACHIEVEMENTS ── */
+  #achievements { background: var(--ink); }
+  .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 4rem; }
+  .ach-item {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    padding: 1.5rem; border-radius: var(--radius-lg);
+    transition: var(--transition);
+  }
+  .ach-item:hover { background: var(--card); }
+  .ach-icon {
+    width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+    background: var(--gold-dim); border: 1px solid rgba(201,168,76,0.25);
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+  }
+  .ach-title { font-weight: 600; color: var(--white); font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .ach-desc { font-size: 0.82rem; color: var(--smoke); line-height: 1.6; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--ink-2); }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
+  .testi-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg); padding: 2.5rem;
+    position: relative; transition: var(--transition);
+  }
+  .testi-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+  .testi-quote {
+    font-family: var(--font-display);
+    font-size: 3rem; line-height: 1; color: var(--gold); margin-bottom: 1rem;
+  }
+  .testi-text { font-size: 0.92rem; color: var(--smoke); line-height: 1.8; font-style: italic; margin-bottom: 1.5rem; }
+  .testi-author { display: flex; align-items: center; gap: 1rem; }
+  .testi-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--accent-teal));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; color: var(--ink);
+  }
+  .testi-name { font-weight: 600; color: var(--white); font-size: 0.9rem; }
+  .testi-role { font-size: 0.75rem; color: var(--smoke); }
+  .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; }
+
+  /* ── PRICING ── */
+  #pricing { background: var(--ink); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
+  .pricing-card {
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg); padding: 2.5rem;
+    transition: var(--transition); position: relative;
+  }
+  .pricing-card.featured {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), var(--card));
+  }
+  .pricing-card:hover { transform: translateY(-4px); }
+  .pricing-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: var(--ink);
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.3rem 0.9rem; border-radius: 100px; white-space: nowrap;
+  }
+  .pricing-type { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--smoke); margin-bottom: 0.5rem; }
+  .pricing-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--white); margin-bottom: 1rem; }
+  .pricing-price { font-family: var(--font-display); font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .pricing-unit { font-size: 0.8rem; color: var(--smoke); margin-bottom: 1.5rem; }
+  .pricing-features { list-style: none; margin: 1.5rem 0; }
+  .pricing-features li { font-size: 0.85rem; color: var(--smoke); padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: center; gap: 0.75rem; }
+  .pricing-features li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.8rem; }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: linear-gradient(135deg, var(--ink-2) 0%, var(--ink-3) 100%);
+    text-align: center;
+  }
+  .contact-inner { max-width: 700px; margin: 0 auto; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin: 3rem 0; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.75rem;
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg); padding: 1rem 1.75rem;
+    color: var(--white); text-decoration: none; font-size: 0.87rem; font-weight: 500;
+    transition: var(--transition);
+  }
+  .contact-link:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+  .contact-link-icon { font-size: 1.1rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #07090f; text-align: center;
+    padding: 2rem 4rem; border-top: 1px solid var(--card-border);
+    font-size: 0.78rem; color: var(--smoke);
+  }
+  footer span { color: var(--gold); }
+
+  /* ── ANIMATE ON SCROLL ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    nav .nav-cta { display: none; }
+    #hero { padding: 5rem 1.5rem 3rem; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .project-grid { grid-template-columns: 1fr; }
+    .ach-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .hero-stats { gap: 2rem; }
+  }
+  @media (max-width: 600px) {
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">SD</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+  <div class="hamburger" id="ham"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Available for Consulting & Freelance Projects</div>
+    <h1 class="hero-name">Srinivas<br><span>Deekonda</span></h1>
+    <p class="hero-title">Head of Operations &amp; Business Intelligence</p>
+    <p class="hero-value">I turn operational chaos into data-driven clarity — delivering Power BI dashboards, analytics systems, and process intelligence that leadership teams actually use to make decisions.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">17+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">25+</div>
+        <div class="stat-label">Tools &amp; Systems Built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Industries Served</div>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#portfolio" class="btn-primary">View My Work →</a>
+      <a href="#contact" class="btn-secondary">Let's Talk</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">Operations &amp; Intelligence,<br><span>Together in One Expert</span></h2>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>With <strong>17+ years across BPO, FinTech, MSME, and service operations</strong>, I specialize in bridging the gap between raw data and business decisions. My work lives at the intersection of Power BI analytics, workforce intelligence, and operational leadership.</p>
+        <p>At <strong>KFin Technologies</strong>, I built the AuTEX automation unit from scratch — a WFM powerhouse managing real-time analytics, FTE planning, and executive dashboards. At <strong>ServCrust</strong>, I own the full operations-finance-intelligence stack, from order processing to GMV reporting to CEO advisory.</p>
+        <p>I hold an <strong>MBA in Finance</strong> from Osmania University and am currently pursuing a Master's in Business Intelligence with Microsoft. My tools are Power BI, DAX, SQL, VBA, and Excel — but my real skill is asking the right business questions before touching a dataset.</p>
+        <div class="strength-pills">
+          <span class="pill">Power BI & DAX</span>
+          <span class="pill">Operations Strategy</span>
+          <span class="pill">Workforce Analytics</span>
+          <span class="pill">Process Automation</span>
+          <span class="pill">MSME Consulting</span>
+          <span class="pill">Financial Reconciliation</span>
+          <span class="pill">KPI Architecture</span>
+          <span class="pill">Six Sigma</span>
+        </div>
+        <div class="industries-list" style="margin-top:2rem;">
+          <div class="industry-item">BPO / KPO / Outsourcing Operations</div>
+          <div class="industry-item">FinTech & Capital Markets (KFin Technologies)</div>
+          <div class="industry-item">MSME Service Platforms (ServCrust)</div>
+          <div class="industry-item">Energy & Government Compliance (Sri Associates)</div>
+        </div>
+      </div>
+      <div class="about-metrics reveal">
+        <div class="metric-card">
+          <div class="metric-card-label">Career Milestone</div>
+          <div class="metric-card-value">17+ Years</div>
+          <div class="metric-card-desc">Uninterrupted track record across analytics, operations, and leadership roles</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">Dashboards & Tools Delivered</div>
+          <div class="metric-card-value">25+ Systems</div>
+          <div class="metric-card-desc">Custom Power BI dashboards, VBA tools, MS Access applications billed to enterprise clients</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">Team Leadership</div>
+          <div class="metric-card-value">100+ FTEs</div>
+          <div class="metric-card-desc">Managed WFM teams, operations analysts, and cross-functional reporting units</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">Awards Won</div>
+          <div class="metric-card-value">9+ Awards</div>
+          <div class="metric-card-desc">Gold, Platinum, Superstar, Agent of Change — recognitions from BACI & KFintech leadership</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-tag">What I Deliver</div>
+    <h2 class="section-title">Services Designed for<br><span>Real Business Impact</span></h2>
+    <div class="divider"></div>
+    <p class="section-lead">Every engagement is structured around one goal: giving your leadership team intelligence they can act on — not more reports to ignore.</p>
+    <div class="services-grid" style="margin-top:3.5rem;">
+
+      <div class="service-card reveal">
+        <div class="service-icon">📊</div>
+        <div class="service-title">Power BI Dashboard Development</div>
+        <div class="pso">
+          <div class="pso-item"><span class="pso-label">Problem</span><span class="pso-text">Leadership relies on static Excel sheets that are outdated the moment they're shared.</span></div>
+          <div class="pso-item"><span class="pso-label sol">Solution</span><span class="pso-text">End-to-end Power BI build: data modeling, advanced DAX, role-based access, and mobile-ready layouts.</span></div>
+          <div class="pso-item"><span class="pso-label out">Outcome</span><span class="pso-text">Real-time decision dashboards reducing reporting time by 60–80% with zero manual effort.</span></div>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">⚙️</div>
+        <div class="service-title">Business Process Optimization</div>
+        <div class="pso">
+          <div class="pso-item"><span class="pso-label">Problem</span><span class="pso-text">Processes have grown organically — full of bottlenecks, duplicate effort, and invisible leakage.</span></div>
+          <div class="pso-item"><span class="pso-label sol">Solution</span><span class="pso-text">Root cause analysis, BRD creation, Six Sigma-based redesign, and SOP standardization.</span></div>
+          <div class="pso-item"><span class="pso-label out">Outcome</span><span class="pso-text">Measurable throughput gains, reduced exception rates, and scalable operating models.</span></div>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🎯</div>
+        <div class="service-title">KPI & Performance Tracking Systems</div>
+        <div class="pso">
+          <div class="pso-item"><span class="pso-label">Problem</span><span class="pso-text">Teams don't know where they stand — or metrics aren't tied to actual business outcomes.</span></div>
+          <div class="pso-item"><span class="pso-label sol">Solution</span><span class="pso-text">Custom Stack Rank systems, FTE-based targets, AHT benchmarking, and automated QC scorecards.</span></div>
+          <div class="pso-item"><span class="pso-label out">Outcome</span><span class="pso-text">Accountability at every level — managers own their numbers and teams improve measurably.</span></div>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🤖</div>
+        <div class="service-title">Data Automation (Excel, VBA & DAX)</div>
+        <div class="pso">
+          <div class="pso-item"><span class="pso-label">Problem</span><span class="pso-text">Hours wasted daily on manual data pulls, formatting, and report generation.</span></div>
+          <div class="pso-item"><span class="pso-label sol">Solution</span><span class="pso-text">VBA macros, MS Access backends, SQL queries, and DAX intelligence replacing manual workflows.</span></div>
+          <div class="pso-item"><span class="pso-label out">Outcome</span><span class="pso-text">Automations that run in seconds — freeing your team to focus on analysis, not data entry.</span></div>
+        </div>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">🏢</div>
+        <div class="service-title">MSME Operations Consulting</div>
+        <div class="pso">
+          <div class="pso-item"><span class="pso-label">Problem</span><span class="pso-text">Growing SMEs lack the structured operations and analytics infrastructure that large companies take for granted.</span></div>
+          <div class="pso-item"><span class="pso-label sol">Solution</span><span class="pso-text">Fractional Head of Operations — building MIS, dashboards, vendor tracking, and team KPI systems from scratch.</span></div>
+          <div class="pso-item"><span class="pso-label out">Outcome</span><span class="pso-text">Enterprise-grade operational intelligence at MSME budgets — scalable as you grow.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-tag">Case Studies</div>
+    <h2 class="section-title">Projects That Moved<br><span>the Needle</span></h2>
+    <div class="divider"></div>
+    <p class="section-lead">Real engagements. Real data. Real business outcomes — not theoretical frameworks.</p>
+
+    <div class="projects-list" style="margin-top:3.5rem;">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card reveal">
+        <div class="project-header" onclick="toggleProject(this)">
+          <div>
+            <div class="project-num">01 / Power BI</div>
+            <div class="project-title">Operations Performance Dashboard — ServCrust</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span class="project-tag">Ops Analytics</span>
+            <span class="project-toggle">+</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-grid">
+            <div>
+              <div class="pj-section-title">Business Problem</div>
+              <p class="pj-text">Leadership had no unified view of daily operations — order volumes, cancellations, service fulfillment rates, and exception handling were tracked across 6 disconnected spreadsheets. Decision-making was reactive, not proactive.</p>
+              <br>
+              <div class="pj-section-title">Data Sources</div>
+              <p class="pj-text">Order management system exports, MSME-wise performance logs, GMV transaction data, payout settlement records, non-accounting order flags.</p>
+              <br>
+              <div class="pj-section-title">Solution Approach</div>
+              <p class="pj-text">Built a unified star-schema data model in Power BI connecting all 6 sources. Designed 3-layer dashboard: Executive Summary → Team-Level Drill → Individual KPI. Implemented daily automated refresh and role-level security so each manager sees only their vertical.</p>
+            </div>
+            <div>
+              <div class="pj-section-title">Key DAX Logic</div>
+              <div class="dax-block">// YTD GMV with dynamic filter context
+YTD_GMV = 
+CALCULATE(
+  SUM(Orders[GMV]),
+  DATESYTD(Calendar[Date])
+)
+
+// Cancellation Rate %
+Cancel_Rate% = 
+DIVIDE(
+  COUNTROWS(FILTER(Orders, Orders[Status]="Cancelled")),
+  COUNTROWS(Orders), 0
+)
+
+// Pending Settlement Flag
+Pending_Days = 
+DATEDIFF(Orders[SettlementDue], TODAY(), DAY)</div>
+              <br>
+              <div class="pj-section-title">Impact Delivered</div>
+              <div class="impact-pills">
+                <span class="impact-pill">↓ 70% reporting time</span>
+                <span class="impact-pill">↑ 40% exception resolution speed</span>
+                <span class="impact-pill">CEO daily review enabled</span>
+                <span class="impact-pill">6 reports → 1 dashboard</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card reveal">
+        <div class="project-header" onclick="toggleProject(this)">
+          <div>
+            <div class="project-num">02 / Power BI + QMS</div>
+            <div class="project-title">Quality Control Analytics — Error Tracking & Analyst Scoring</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span class="project-tag">Quality Intelligence</span>
+            <span class="project-toggle">+</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-grid">
+            <div>
+              <div class="pj-section-title">Business Problem</div>
+              <p class="pj-text">Quality errors were being tracked manually — audit results sat in email threads. No visibility into error trends by type, analyst, or process. Coaching was reactive with no data to back it up.</p>
+              <br>
+              <div class="pj-section-title">Data Sources</div>
+              <p class="pj-text">SharePoint-based QMS audit entries, analyst production logs, error taxonomy classification, team hierarchy mappings.</p>
+              <br>
+              <div class="pj-section-title">Solution Approach</div>
+              <p class="pj-text">Built the MERLIN QMS system — a SharePoint + Power BI integration capturing 100% of audits digitally. Created error Pareto analysis, analyst-level scorecards, and trend alerts. Enabled calibration sessions with visual proof points replacing anecdotal feedback.</p>
+            </div>
+            <div>
+              <div class="pj-section-title">Key DAX Logic</div>
+              <div class="dax-block">// QC Score per Analyst
+QC_Score = 
+DIVIDE(
+  SUMX(Audits, Audits[Points_Earned]),
+  SUMX(Audits, Audits[Points_Possible]),
+  0
+) * 100
+
+// Rolling 4-Week Error Trend
+Error_4W_Avg = 
+CALCULATE(
+  COUNTROWS(Audits),
+  DATESINPERIOD(Calendar[Date], LASTDATE(Calendar[Date]), -28, DAY)
+)</div>
+              <br>
+              <div class="pj-section-title">Impact Delivered</div>
+              <div class="impact-pills">
+                <span class="impact-pill">↓ 35% repeat errors in 90 days</span>
+                <span class="impact-pill">100% audit digitization</span>
+                <span class="impact-pill">↓ 80% calibration prep time</span>
+                <span class="impact-pill">Analyst coaching data-driven</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card reveal">
+        <div class="project-header" onclick="toggleProject(this)">
+          <div>
+            <div class="project-num">03 / Excel + Power BI</div>
+            <div class="project-title">Employee Productivity & Stack Rank System — KFin Technologies</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span class="project-tag">Performance Mgmt</span>
+            <span class="project-toggle">+</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-grid">
+            <div>
+              <div class="pj-section-title">Business Problem</div>
+              <p class="pj-text">Performance reviews were subjective. No unified scoring across 100+ associates spanning multiple processes. Managers could not identify low-performers early or recognize high-performers fairly.</p>
+              <br>
+              <div class="pj-section-title">Data Sources</div>
+              <p class="pj-text">ATOM time tracking data, productivity volumes, QC scores, adherence logs, HR leave records, AHT from system timestamps.</p>
+              <br>
+              <div class="pj-section-title">Solution Approach</div>
+              <p class="pj-text">Designed a weighted Stack Rank algorithm combining 5 KPIs: productivity %, quality score, adherence, AHT efficiency, and behavioral ratings. Built automated weekly Power BI refresh with manager-view drill-through. System was later standardized across the Central Indexing division.</p>
+            </div>
+            <div>
+              <div class="pj-section-title">Key DAX Logic</div>
+              <div class="dax-block">// Weighted Stack Rank Score
+Stack_Score = 
+([Productivity_Score] * 0.35) +
+([QC_Score] * 0.30) +
+([AHT_Score] * 0.20) +
+([Adherence_Score] * 0.15)
+
+// Relative Rank within Team
+Team_Rank = 
+RANKX(
+  ALLSELECTED(Employees[EmpID]),
+  [Stack_Score], , DESC, Dense
+)</div>
+              <br>
+              <div class="pj-section-title">Impact Delivered</div>
+              <div class="impact-pills">
+                <span class="impact-pill">↑ 25% performance transparency</span>
+                <span class="impact-pill">Subjectivity eliminated</span>
+                <span class="impact-pill">Standardized across division</span>
+                <span class="impact-pill">100+ associates tracked</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="project-card reveal">
+        <div class="project-header" onclick="toggleProject(this)">
+          <div>
+            <div class="project-num">04 / VBA + Power BI</div>
+            <div class="project-title">ATOM — Automated Tracking & Operations Management System</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <span class="project-tag">Automation</span>
+            <span class="project-toggle">+</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-grid">
+            <div>
+              <div class="pj-section-title">Business Problem</div>
+              <p class="pj-text">Work allocation was manual — supervisors spent 90+ minutes daily distributing tasks based on availability, priority, and skill. No time-tracking. No real-time queue visibility.</p>
+              <br>
+              <div class="pj-section-title">Data Sources</div>
+              <p class="pj-text">Inbound work queues, associate skill matrices, real-time availability flags, process priority rules, SLA timelines.</p>
+              <br>
+              <div class="pj-section-title">Solution Approach</div>
+              <p class="pj-text">Built ATOM — a VBA + MS Access system with dynamic work allocation engine using rule-based priority logic. Auto-assigns tasks to associates based on skill, availability, and queue age. Time tracking built in from login to log-off. Output feeds Power BI for intraday management visibility.</p>
+            </div>
+            <div>
+              <div class="pj-section-title">Technical Highlights</div>
+              <div class="dax-block">// Dynamic Allocation Logic (VBA pseudocode)
+For Each task In PendingQueue
+  Set agent = GetAvailableAgent(
+    skill := task.RequiredSkill,
+    priority := task.SLAFlag
+  )
+  If Not agent Is Nothing Then
+    AssignTask(task, agent)
+    LogTimestamp(agent, task, Now())
+  End If
+Next task</div>
+              <br>
+              <div class="pj-section-title">Impact Delivered</div>
+              <div class="impact-pills">
+                <span class="impact-pill">↓ 90 min/day supervisor overhead</span>
+                <span class="impact-pill">↑ 30% throughput</span>
+                <span class="impact-pill">100% time capture automated</span>
+                <span class="impact-pill">SLA breach alerts enabled</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="container">
+    <div class="section-tag">BI Expertise</div>
+    <h2 class="section-title">Power BI Depth,<br><span>Not Just Breadth</span></h2>
+    <div class="divider"></div>
+    <div class="expertise-grid">
+      <div class="expertise-card reveal">
+        <div class="exp-icon">⚡</div>
+        <div class="exp-title">Advanced DAX Engineering</div>
+        <ul class="exp-list">
+          <li>CALCULATE with complex filter contexts</li>
+          <li>Time intelligence (YTD, MTD, rolling windows)</li>
+          <li>RANKX, TOPN, dynamic segmentation</li>
+          <li>Iterators: SUMX, AVERAGEX, MAXX</li>
+          <li>Disconnected tables & what-if parameters</li>
+          <li>FTE-based target measures</li>
+        </ul>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="exp-icon">🗄️</div>
+        <div class="exp-title">Data Modeling</div>
+        <ul class="exp-list">
+          <li>Star & snowflake schema design</li>
+          <li>Many-to-many relationship handling</li>
+          <li>Calendar table construction</li>
+          <li>Role-Level Security (RLS) implementation</li>
+          <li>Incremental refresh strategies</li>
+          <li>Composite model optimization</li>
+        </ul>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="exp-icon">📈</div>
+        <div class="exp-title">Dashboard Storytelling</div>
+        <ul class="exp-list">
+          <li>Executive summary → drill-down layering</li>
+          <li>Conditional formatting & visual alerts</li>
+          <li>Mobile-optimized report layout</li>
+          <li>Bookmarks, tooltips & page navigation</li>
+          <li>Custom visuals integration</li>
+          <li>Report theming for brand consistency</li>
+        </ul>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="exp-icon">🔧</div>
+        <div class="exp-title">Performance Optimization</div>
+        <ul class="exp-list">
+          <li>VertiPaq compression analysis</li>
+          <li>Query folding in Power Query</li>
+          <li>Reducing model size via aggregations</li>
+          <li>Avoiding calculated columns in DAX</li>
+          <li>DirectQuery vs Import trade-offs</li>
+          <li>Gateway refresh scheduling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="container">
+    <div class="section-tag">Technology Stack</div>
+    <h2 class="section-title">Tools I Deliver<br><span>Results With</span></h2>
+    <div class="divider"></div>
+    <div class="tools-grid">
+      <div class="tool-card reveal">
+        <div class="tool-icon">📊</div>
+        <div class="tool-name">Power BI</div>
+        <div class="tool-level">Expert · DAX · Modeling</div>
+        <div class="tool-bar"><div class="tool-bar-fill" style="width:95%"></div></div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tool-icon">📗</div>
+        <div class="tool-name">MS Excel</div>
+        <div class="tool-level">Expert · VBA · Pivot</div>
+        <div class="tool-bar"><div class="tool-bar-fill" style="width:98%"></div></div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tool-icon">🗃️</div>
+        <div class="tool-name">MS Access</div>
+        <div class="tool-level">Advanced · VBA Backend</div>
+        <div class="tool-bar"><div class="tool-bar-fill" style="width:90%"></div></div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tool-icon">🛢️</div>
+        <div class="tool-name">SQL</div>
+        <div class="tool-level">Advanced · Report Builder</div>
+        <div class="tool-bar"><div class="tool-bar-fill" style="width:85%"></div></div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tool-icon">☁️</div>
+        <div class="tool-name">SharePoint</div>
+        <div class="tool-level">Intermediate · Integration</div>
+        <div class="tool-bar"><div class="tool-bar-fill" style="width:80%"></div></div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tool-icon">🤖</div>
+        <div class="tool-name">AI Tools</div>
+        <div class="tool-level">Copilot · Claude · Automation</div>
+        <div class="tool-bar"><div class="tool-bar-fill" style="width:75%"></div></div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tool-icon">📋</div>
+        <div class="tool-name">Office 365</div>
+        <div class="tool-level">Power Platform Suite</div>
+        <div class="tool-bar"><div class="tool-bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="tool-card reveal">
+        <div class="tool-icon">📐</div>
+        <div class="tool-name">Six Sigma</div>
+        <div class="tool-level">DMAIC · Process Design</div>
+        <div class="tool-bar"><div class="tool-bar-fill" style="width:88%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-tag">Impact & Achievements</div>
+    <h2 class="section-title">A Track Record That<br><span>Speaks in Numbers</span></h2>
+    <div class="divider"></div>
+    <div class="ach-grid">
+      <div class="ach-item reveal">
+        <div class="ach-icon">🏆</div>
+        <div>
+          <div class="ach-title">Gold & Platinum Awards (2011–2014)</div>
+          <div class="ach-desc">Consecutive 4-year recognition in the FLM category at BACI for operational and analytical excellence above peer benchmarks.</div>
+        </div>
+      </div>
+      <div class="ach-item reveal">
+        <div class="ach-icon">🤖</div>
+        <div>
+          <div class="ach-title">Built 25+ Enterprise Tools</div>
+          <div class="ach-desc">Designed and delivered 15 billable applications for KCC Onsite, plus ATOM, MERLIN, OneStop, GWA, and QMS systems — each adopted at scale.</div>
+        </div>
+      </div>
+      <div class="ach-item reveal">
+        <div class="ach-icon">🌐</div>
+        <div>
+          <div class="ach-title">AuTEX Global Partner Introduction</div>
+          <div class="ach-desc">Successfully introduced KFin's AuTEX automation team to global partners, expanding the unit's remit and client base internationally.</div>
+        </div>
+      </div>
+      <div class="ach-item reveal">
+        <div class="ach-icon">⚡</div>
+        <div>
+          <div class="ach-title">Reports Digitalization — GBS</div>
+          <div class="ach-desc">Replaced all conventional Excel reporting for resident and onshore management with Power BI, cutting manual reporting overhead by 70%.</div>
+        </div>
+      </div>
+      <div class="ach-item reveal">
+        <div class="ach-icon">🎯</div>
+        <div>
+          <div class="ach-title">Agent of Change (2007, Cideas Programme)</div>
+          <div class="ach-desc">Recognized for introducing systematic process improvement ideas that were adopted across the organization — very early in career.</div>
+        </div>
+      </div>
+      <div class="ach-item reveal">
+        <div class="ach-icon">💰</div>
+        <div>
+          <div class="ach-title">Critical Resource — Special Bonus (KFintech)</div>
+          <div class="ach-desc">Awarded a special bonus for 2 consecutive years as a critical resource to the company — a distinction given to fewer than 5% of the workforce.</div>
+        </div>
+      </div>
+      <div class="ach-item reveal">
+        <div class="ach-icon">🏙️</div>
+        <div>
+          <div class="ach-title">First Energy Savings Contract — Siddipet Municipality</div>
+          <div class="ach-desc">Led winning the first government energy savings contract in Telangana for Siddipet Municipality during tenure at Sri Associates.</div>
+        </div>
+      </div>
+      <div class="ach-item reveal">
+        <div class="ach-icon">🌟</div>
+        <div>
+          <div class="ach-title">SMART App Initiative — ServCrust</div>
+          <div class="ach-desc">Spearheaded digital transformation initiative improving operational efficiency, with direct recommendations to CEO and CTO on product direction.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-tag">Client Voices</div>
+    <h2 class="section-title">What Leaders Say About<br><span>Working With Me</span></h2>
+    <div class="divider"></div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Srinivas built our entire BI reporting infrastructure from scratch. Within 3 months, our leadership team shifted from weekly Excel reviews to live Power BI dashboards. He understands the business first — then builds the analytics around it. That's rare.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RK</div>
+          <div>
+            <div class="testi-name">Rajesh K.</div>
+            <div class="testi-role">CEO, Mid-Size MSME Service Company</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">We hired Srinivas to fix our WFM reporting. He delivered a full capacity planning model, intraday dashboard, and quality scorecard — all integrated. The DAX he wrote was clean, optimized, and came with full documentation. Highly recommend for any operations analytics engagement.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">PM</div>
+          <div>
+            <div class="testi-name">Priya M.</div>
+            <div class="testi-role">Head of Operations, FinTech Platform</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">What sets Srinivas apart is that he thinks like an operator and builds like an analyst. He identified process gaps we didn't even know existed and backed every recommendation with data. Our error rate dropped 35% in one quarter after implementing his QMS system.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AS</div>
+          <div>
+            <div class="testi-name">Anand S.</div>
+            <div class="testi-role">Service Delivery Head, BPO Enterprise</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-tag">Engagement Models</div>
+    <h2 class="section-title">Transparent Pricing,<br><span>Measurable ROI</span></h2>
+    <div class="divider"></div>
+    <p class="section-lead">Every engagement is scoped to deliver clear, quantifiable outcomes. No retainer traps — just results.</p>
+    <div class="pricing-grid" style="margin-top:3.5rem;">
+      <div class="pricing-card reveal">
+        <div class="pricing-type">Consulting</div>
+        <div class="pricing-name">Hourly Advisory</div>
+        <div class="pricing-price">₹2,500</div>
+        <div class="pricing-unit">per hour · minimum 4 hours</div>
+        <ul class="pricing-features">
+          <li>Power BI review & DAX audit</li>
+          <li>Dashboard strategy sessions</li>
+          <li>Process analysis consulting</li>
+          <li>KPI architecture design</li>
+          <li>Quick-turn BI troubleshooting</li>
+        </ul>
+        <a href="#contact" class="btn-secondary" style="display:block;text-align:center;margin-top:1.5rem;">Book a Session</a>
+      </div>
+      <div class="pricing-card featured reveal">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-type">Fixed Scope</div>
+        <div class="pricing-name">Project-Based Delivery</div>
+        <div class="pricing-price">₹15K+</div>
+        <div class="pricing-unit">per project · scoped per requirement</div>
+        <ul class="pricing-features">
+          <li>End-to-end Power BI dashboard build</li>
+          <li>Data modeling + DAX development</li>
+          <li>2 rounds of revisions included</li>
+          <li>Documentation & training session</li>
+          <li>Post-launch 30-day support</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="display:block;text-align:center;margin-top:1.5rem;">Get a Custom Quote</a>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-type">Ongoing Partnership</div>
+        <div class="pricing-name">Monthly Analytics Support</div>
+        <div class="pricing-price">₹20K</div>
+        <div class="pricing-unit">per month · 20 hours included</div>
+        <ul class="pricing-features">
+          <li>Dashboard maintenance & updates</li>
+          <li>Monthly MIS reports delivery</li>
+          <li>New metrics & KPI additions</li>
+          <li>Dedicated WhatsApp support</li>
+          <li>Quarterly performance reviews</li>
+        </ul>
+        <a href="#contact" class="btn-secondary" style="display:block;text-align:center;margin-top:1.5rem;">Start Monthly Plan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-tag" style="text-align:center">Let's Work Together</div>
+      <h2 class="section-title" style="text-align:center">Ready to Transform Your<br><span>Operations with Data?</span></h2>
+      <div class="divider" style="margin:1.5rem auto;"></div>
+      <p class="section-lead" style="text-align:center;margin:0 auto 1rem;">Whether you need a Power BI dashboard, a process overhaul, or an embedded analytics partner — let's start with a conversation. Response within 24 hours guaranteed.</p>
+      <div class="contact-links">
+        <a href="mailto:srinivasdeekonda100@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉️</span>
+          srinivasdeekonda100@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/srinivas-deekonda-3b1921101" target="_blank" class="contact-link">
+          <span class="contact-link-icon">💼</span>
+          LinkedIn Profile
+        </a>
+        <a href="tel:+919985100352" class="contact-link">
+          <span class="contact-link-icon">📱</span>
+          +91 99851 00352
+        </a>
+      </div>
+      <a href="mailto:srinivasdeekonda100@gmail.com" class="btn-primary" style="display:inline-flex;margin:0 auto;">Send Me a Project Brief →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Srinivas Deekonda</span> · Head of Operations & Business Intelligence · Hyderabad, India</p>
+  <p style="margin-top:0.4rem;font-size:0.72rem;">Available for Freelance · Consulting · Full-Time Opportunities</p>
+</footer>
+
+<script>
+  // Accordion
+  function toggleProject(header) {
+    const body = header.nextElementSibling;
+    const toggle = header.querySelector('.project-toggle');
+    const isOpen = body.classList.contains('open');
+    document.querySelectorAll('.project-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.project-toggle').forEach(t => t.textContent = '+');
+    if (!isOpen) { body.classList.add('open'); toggle.textContent = '−'; }
+  }
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Mobile nav
+  document.getElementById('ham').addEventListener('click', function() {
+    const nav = document.querySelector('.nav-links');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '60px'; nav.style.left = '0'; nav.style.right = '0';
+    nav.style.background = '#0c0f1a'; nav.style.padding = '1.5rem';
+    nav.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+  });
+</script>
+</body>
+</html>
